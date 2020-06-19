@@ -102,7 +102,7 @@ END_MIDI_NAMESPACE
     MIDI_NAMESPACE::SerialMIDI<Type> serial##Name(SerialPort);\
     MIDI_NAMESPACE::MidiInterface<MIDI_NAMESPACE::SerialMIDI<Type>> Name((MIDI_NAMESPACE::SerialMIDI<Type>&)serial##Name);
 
-#if defined(ARDUINO_SAM_DUE) || defined(USBCON) || defined(__MK20DX128__) || defined(__MK20DX256__) || defined(__MKL26Z64__)
+#if defined(ARDUINO_SAM_DUE) || defined(USBCON) || defined(TEENSYDUINO)
     // Leonardo, Due and other USB boards use Serial1 by default.
     #define MIDI_CREATE_DEFAULT_INSTANCE()                                      \
         MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI);
